@@ -6,3 +6,8 @@
   pacman:
     update_cache: yes
     upgrade: yes
+- name: install git and base devel group
+  pacman: name={{ item }}
+  with_items:
+    - base-devel
+    - git
