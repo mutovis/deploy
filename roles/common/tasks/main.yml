@@ -2,10 +2,33 @@
 - name: Get the kernel version
   command: "uname -r"
   register: uname
+
 - name: full system upgrade
   pacman:
     update_cache: yes
     upgrade: yes
+
 - name: install git and base devel group
   pacman:
     name: ['base-devel', 'git']
+
+- name: get ready to build from AUR
+  command: "{{item}}"
+    with_items:
+    - mkdir /home/build
+    - chgrp nobody /home/build
+    - chmod g+ws /home/build
+    - setfacl -m u::rwx,g::rwx /home/build
+    - setfacl -d --set u::rwx,g::rwx,o::- /home/build
+
+- git:
+    repo: 'https://github.com/kewlfft/ansible-aur.git'
+    dest: /home/build/ansible-aur
+  
+- name: build ansible AUR module
+  command: "makepkg"
+  args:
+    chdir: /home/build/ansible-aur
+  become: yes
+  become_user: nobody
+  
