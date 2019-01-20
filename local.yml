@@ -1,0 +1,7 @@
+---
+- name: software setup
+  hosts: localhost
+  become: yes
+  tasks:
+    - import_role:
+      name: common
