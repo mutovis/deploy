@@ -1,0 +1,13 @@
+---
+- name: update this
+  hosts: 127.0.0.1
+  become: yes
+
+  tasks:
+    - name: print out the hostname of target
+      command: hostname
+
+    - name: full system upgrade
+      pacman:
+        update_cache: yes
+        upgrade: yes
