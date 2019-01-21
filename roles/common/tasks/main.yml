@@ -12,15 +12,20 @@
   pacman:
     name: ['base-devel', 'git']
 
+- name: make AUR build dir
+  file:
+    path: /home/build
+    state: directory
+    group: nobody
+    mode: "g+ws"
+
 - name: get ready to build from AUR
   shell: |
-    mkdir /home/build
-    chgrp nobody /home/build
-    chmod g+ws /home/build
     setfacl -m u::rwx,g::rwx /home/build
     setfacl -d --set u::rwx,g::rwx,o::- /home/build
     
     exit 0
+    
 
 - git:
     repo: 'https://aur.archlinux.org/ansible-aur-git.git'
