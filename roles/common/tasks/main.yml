@@ -29,8 +29,21 @@
 - git:
     repo: 'https://aur.archlinux.org/ansible-aur-git.git'
     dest: /home/build/ansible-aur-git
+    force: yes
+    
+- name: remove packages
+  file:
+    path:/home/build/ansible-aur-git/*.pkg.tar
+    state: absent
   
 - name: build ansible AUR module
-  command: "sudo -u nobody makepkg -i"
+  command: "PKGEXT=.pkg.tar makepkg"
+  args:
+    chdir: /home/build/ansible-aur-git
+  become: yes
+  become: nobody
+
+-name: install ansible AUR module
+  command: "pacman -U *.pkg.tar"
   args:
     chdir: /home/build/ansible-aur-git
