@@ -34,7 +34,7 @@
 - name: Ansible delete file glob
   find:
     paths: /home/build/ansible-aur-git
-    patterns: *.pkg.tar
+    patterns: "*.pkg.tar"
   register: files_to_delete
 
 - name: Ansible remove file glob
