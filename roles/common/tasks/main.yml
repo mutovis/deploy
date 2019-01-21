@@ -36,10 +36,6 @@
   args:
     chdir: /home/build/ansible-aur-git
 
-  file:
-    path: /home/build/ansible-aur-git/*.pkg.tar
-    state: absent
-  
 - name: build ansible AUR module
   command: "makepkg"
   environment:
