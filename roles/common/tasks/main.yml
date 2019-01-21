@@ -32,6 +32,10 @@
     force: yes
     
 - name: remove packages
+  shell: "rm *.pkg.tar"
+  args:
+    chdir: /home/build/ansible-aur-git
+
   file:
     path: /home/build/ansible-aur-git/*.pkg.tar
     state: absent
