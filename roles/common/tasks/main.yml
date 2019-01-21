@@ -31,17 +31,10 @@
     dest: /home/build/ansible-aur-git
     force: yes
 
-- name: Ansible delete file glob
-  find:
-    paths: /home/build/ansible-aur-git
-    patterns: "*.pkg.tar"
-  register: files_to_delete
-
-- name: Ansible remove file glob
+- name: delete previous packages
   file:
-    path: "{{ item.path }}"
+    path: /tmp/ans_makepkg
     state: absent
-  with_items: "{{ files_to_delete.files }}"
 
 - name: build ansible AUR module
   command: "makepkg"
@@ -53,7 +46,7 @@
   become: yes
   become_user: nobody
 
-- name: install ansible AUR module
-  shell: "pacman -U /tmp/ans_makepkg/*.pkg.tar --noconfirm"
+- name: install previously built AUR packages
+  shell: "pacman -U *.pkg.tar --noconfirm"
   args:
     chdir: /home/build/ansible-aur-git
