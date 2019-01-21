@@ -23,13 +23,13 @@
     exit 0
 
 - git:
-    repo: 'https://github.com/kewlfft/ansible-aur.git'
-    dest: /home/build/ansible-aur
+    repo: 'https://aur.archlinux.org/ansible-aur-git.git'
+    dest: /home/build/ansible-aur-git
   
 - name: build ansible AUR module
   command: "makepkg"
   args:
-    chdir: /home/build/ansible-aur
+    chdir: /home/build/ansible-aur-git
   become: yes
   become_user: nobody
   
