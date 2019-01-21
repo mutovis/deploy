@@ -47,12 +47,13 @@
   command: "makepkg"
   environment:
     PKGEXT: .pkg.tar
+    PKGDEST: /tmp/ans_makepkg
   args:
     chdir: /home/build/ansible-aur-git
   become: yes
   become_user: nobody
 
 - name: install ansible AUR module
-  shell: "pacman -U *.pkg.tar --noconfirm"
+  shell: "pacman -U /tmp/ans_makepkg/*.pkg.tar --noconfirm"
   args:
     chdir: /home/build/ansible-aur-git
