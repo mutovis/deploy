@@ -49,4 +49,4 @@
 - name: install previously built AUR packages
   shell: "pacman -U *.pkg.tar --noconfirm"
   args:
-    chdir: /home/build/ansible-aur-git
+    chdir: /tmp/ans_makepkg
