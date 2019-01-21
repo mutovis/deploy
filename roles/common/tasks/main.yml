@@ -33,14 +33,14 @@
 
 - name: delete previous packages
   file:
-    path: /tmp/ans_makepkg
+    path: /var/tmp/ans_makepkg
     state: absent
 
 - name: build ansible AUR module
   command: "makepkg"
   environment:
     PKGEXT: .pkg.tar
-    PKGDEST: /tmp/ans_makepkg
+    PKGDEST: /var/tmp/ans_makepkg
   args:
     chdir: /home/build/ansible-aur-git
   become: yes
@@ -49,4 +49,4 @@
 - name: install previously built AUR packages
   shell: "pacman -U *.pkg.tar --noconfirm"
   args:
-    chdir: /tmp/ans_makepkg
+    chdir: /var/tmp/ans_makepkg
