@@ -10,7 +10,7 @@
 
 - name: install git and base devel group
   pacman:
-    name: ['base-devel', 'git']
+    name: ['base-devel', 'git', 'sudo']
 
 - name: make AUR build dir
   file:
@@ -31,9 +31,6 @@
     dest: /home/build/ansible-aur-git
   
 - name: build ansible AUR module
-  command: "makepkg -i"
+  command: "sudo -u nobody makepkg -i"
   args:
     chdir: /home/build/ansible-aur-git
-  become: yes
-  become_user: nobody
-  
