@@ -10,7 +10,7 @@
 
 - name: install git and base devel group
   pacman:
-    name: ['base-devel', 'git', 'sudo']
+    name: ['base-devel', 'git']
 
 - name: make AUR build dir
   file:
@@ -37,7 +37,9 @@
     state: absent
   
 - name: build ansible AUR module
-  command: "PKGEXT=.pkg.tar makepkg"
+  command: "makepkg"
+  environment:
+    PKGEXT: .pkg.tar
   args:
     chdir: /home/build/ansible-aur-git
   become: yes
