@@ -43,7 +43,7 @@
   become: yes
   become: nobody
 
--name: install ansible AUR module
+- name: install ansible AUR module
   command: "pacman -U *.pkg.tar"
   args:
     chdir: /home/build/ansible-aur-git
