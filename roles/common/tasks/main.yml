@@ -33,7 +33,7 @@
     
 - name: remove packages
   file:
-    path:/home/build/ansible-aur-git/*.pkg.tar
+    path: /home/build/ansible-aur-git/*.pkg.tar
     state: absent
   
 - name: build ansible AUR module
