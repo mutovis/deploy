@@ -50,3 +50,26 @@
   shell: "pacman -U *.pkg.tar --noconfirm"
   args:
     chdir: /var/tmp/ans_makepkg
+
+
+- name: make aur_builder user
+  user:
+    name: aur_builder
+
+- name: give aur_builder sudo for pacman
+  lineinfile:
+   path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
+   state: present
+   line: "aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
+   validate: /usr/sbin/visudo -cf %s
+   create: yes
+
+- name: install go for yay
+  pacman:
+    name: go
+
+- name: install yay
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: yay

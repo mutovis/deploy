@@ -1,0 +1,6 @@
+---
+- name: install linux-gpib stuff kernel module
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: ['linux-gpib-dkms','python-linux-gpib']

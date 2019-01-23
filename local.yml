@@ -4,4 +4,4 @@
   become: yes
   tasks:
     - import_role:
-       name: common
+       name: ['common', 'gpib', 'visa']

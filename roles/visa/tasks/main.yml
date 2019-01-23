@@ -1,0 +1,6 @@
+---
+- name: install pyvisa
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: ['python-pyvisa','python-pyvisa-py-git']
