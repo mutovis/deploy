@@ -26,7 +26,8 @@
     
     exit 0
     
-- git:
+- name: clone ansible-aur-git repo from the AUR
+  git:
     repo: 'https://aur.archlinux.org/ansible-aur-git.git'
     dest: /home/build/ansible-aur-git
     force: yes
@@ -51,6 +52,10 @@
   args:
     chdir: /var/tmp/ans_makepkg
 
+- name: cleanup previous packages
+  file:
+    path: /var/tmp/ans_makepkg
+    state: absent
 
 - name: make aur_builder user
   user:
@@ -71,5 +76,7 @@
 - name: install yay
   become: yes
   become_user: aur_builder
+  environment:
+    PKGDEST: ""
   aur:
     name: yay

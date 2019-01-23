@@ -2,5 +2,7 @@
 - name: install pyvisa
   become: yes
   become_user: aur_builder
+  environment:
+    PKGDEST: ""
   aur:
     name: ['python-pyvisa','python-pyvisa-py-git']

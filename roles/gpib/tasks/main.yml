@@ -2,5 +2,7 @@
 - name: install linux-gpib stuff kernel module
   become: yes
   become_user: aur_builder
+  environment:
+    PKGDEST: ""
   aur:
     name: ['linux-gpib-dkms','python-linux-gpib']
