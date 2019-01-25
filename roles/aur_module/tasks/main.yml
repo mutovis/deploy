@@ -1,0 +1,8 @@
+---
+- name: install yay
+  become: yes
+  become_user: aur_builder
+  environment:
+    PKGDEST: ""
+  aur:
+    name: yay

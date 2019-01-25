@@ -1,5 +1,11 @@
 ---
-- name: install linux-gpib stuff kernel module
+- name: remove wrong linux-gpib
+  ignore_errors: yes
+  pacman:
+    name: linux-gpib
+    state: absent
+
+- name: install linux-gpib kernel module and python bindings
   become: yes
   become_user: aur_builder
   environment:

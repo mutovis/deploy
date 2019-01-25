@@ -5,7 +5,9 @@
   tasks:
     - import_role:
        name: common
-    - import_role:
+    - include_role:
+       name: aur_module
+    - include_role:
        name: gpib
-    - import_role:
+    - include_role:
        name: visa
