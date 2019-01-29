@@ -6,5 +6,3 @@
     PKGDEST: ""
   aur:
     name: yay
-  args:
-    warn: false
