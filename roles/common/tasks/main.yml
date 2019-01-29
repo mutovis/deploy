@@ -44,9 +44,10 @@
     PKGDEST: /var/tmp/ans_makepkg
   args:
     chdir: /home/build/ansible-aur-git
+    warn: false
   become: yes
   become_user: nobody
-
+    
 - name: install previously built AUR packages
   shell: "pacman -U *.pkg.tar --noconfirm"
   args:
