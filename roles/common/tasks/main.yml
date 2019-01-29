@@ -44,7 +44,6 @@
     PKGDEST: /var/tmp/ans_makepkg
   args:
     chdir: /home/build/ansible-aur-git
-  warn: false
   become: yes
   become_user: nobody
     
