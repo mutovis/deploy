@@ -11,3 +11,5 @@
        name: gpib
     - include_role:
        name: visa
+    - include_role:
+       name: hdf5

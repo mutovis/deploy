@@ -1,0 +1,13 @@
+---
+- name: install hdfview
+  become: yes
+  become_user: aur_builder
+  environment:
+    PKGDEST: ""
+  aur:
+    name: ['hdfview-git']
+
+- name: install h5py
+  become: yes
+  pacman:
+    name: ['python-h5py-openmpi']
