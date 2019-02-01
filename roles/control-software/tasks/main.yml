@@ -1,0 +1,14 @@
+---
+- name: install pyserial
+  ignore_errors: yes
+  pacman:
+    name: python-pyserial
+    state: present
+
+#- name: install mutovis control-software
+#  become: yes
+#  become_user: aur_builder
+#  environment:
+#    PKGDEST: ""
+#  aur:
+#    name: ['mutovis-control-software']
