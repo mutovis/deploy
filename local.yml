@@ -12,4 +12,6 @@
     - include_role:
        name: visa
     - include_role:
+       name: hdf5
+    - include_role:
        name: control-software

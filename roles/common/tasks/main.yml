@@ -1,4 +1,11 @@
 ---
+- name: make tmp directory
+  file:
+    path: /tmp/ansible
+    state: directory
+    group: nobody
+    mode: 0777
+
 - name: Get the kernel version
   command: "uname -r"
   register: uname
@@ -46,7 +53,7 @@
     chdir: /home/build/ansible-aur-git
   become: yes
   become_user: nobody
-
+    
 - name: install previously built AUR packages
   shell: "pacman -U *.pkg.tar --noconfirm"
   args:
