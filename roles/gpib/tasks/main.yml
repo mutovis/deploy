@@ -11,4 +11,4 @@
   environment:
     PKGDEST: ""
   aur:
-    name: ['linux-gpib-dkms','python-linux-gpib']
+    name: ['linux-gpib-dkms','python-linux-gpib','fxload']
