@@ -2,7 +2,7 @@
 - name: install pyserial
   ignore_errors: yes
   pacman:
-    name: python-pyserial
+    name: ['python-pyserial' 'python-numpy']
     state: present
 
 #- name: install mutovis control-software
