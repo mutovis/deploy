@@ -72,10 +72,15 @@
   vars:
     # created with:
     # openssl passwd -salt saltysalt -1 the_password
-    password: $1$saltysal$.QPThK.tBENRwBZL1fD5I1 
+    hashed_pw: $1$saltysal$.QPThK.tBENRwBZL1fD5I1 
   user:
     name: mutovis
-    password: {{password}}
+    password: "{{ hashed_pw }}"
+
+- name: make mutovis home world readable
+  file:
+    path: /home/mutovis
+    mode: "o+r"
 
 - name: give aur_builder sudo for pacman
   lineinfile:
@@ -85,7 +90,7 @@
    validate: /usr/sbin/visudo -cf %s
    create: yes
 
-- name: install go for yay
+- name: install high level dependencies
   pacman:
-    name: go
+    name: ['go', 'python-setuptools', 'python2-setuptools']
 

@@ -4,6 +4,7 @@
   pacman:
     name: linux-gpib
     state: absent
+    force: yes
 
 - name: install linux-gpib kernel module and python bindings
   become: yes

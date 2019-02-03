@@ -8,7 +8,7 @@
   become: yes
   become_user: mutovis
   git:
-    repo: 'https://foosball.example.org/path/to/repo.git'
+    repo: 'https://github.com/mutovis/firmware.git'
     dest: /home/mutovis/git/mutovis/firmware
     version: master
 
@@ -21,10 +21,23 @@
      arduino-cli lib install "Ethernet"
      exit 0
 
+- name: find arduino tmp files
+  find:
+    paths: /tmp
+    file_type: directory
+    patterns: arduino-*
+  register: ard_tmp_dirs
+
+- name: clean arduino tmp
+  file:
+    state: absent
+    path: "{{ item.path }}"
+  with_items: "{{ ard_tmp_dirs.files }}"
+
 - name: compile firmware
   become: yes
   become_user: mutovis
   args:
-    chdir: /home/mutovis/git/mutovis/firmware
+    chdir: /home/mutovis/git/mutovis/firmware/mainArduino
   shell: |
     arduino-cli compile -o build/mutovis_firmware -b arduino:avr:mega . 
