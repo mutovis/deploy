@@ -8,6 +8,8 @@
     - include_role:
        name: aur_module
     - include_role:
+       name: firmware
+    - include_role:
        name: gpib
     - include_role:
        name: visa

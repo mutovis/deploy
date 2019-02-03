@@ -68,6 +68,15 @@
   user:
     name: aur_builder
 
+- name: make mutovis user
+  vars:
+    # created with:
+    # openssl passwd -salt saltysalt -1 the_password
+    password: $1$saltysal$.QPThK.tBENRwBZL1fD5I1 
+  user:
+    name: mutovis
+    password: {{password}}
+
 - name: give aur_builder sudo for pacman
   lineinfile:
    path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman

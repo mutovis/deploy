@@ -1,0 +1,30 @@
+---
+- name: install arduino-cli
+  pacman:
+    name: arduino-cli
+    state: present
+
+- name: clone firmware repo
+  become: yes
+  become_user: mutovis
+  git:
+    repo: 'https://foosball.example.org/path/to/repo.git'
+    dest: /home/mutovis/git/mutovis/firmware
+    version: master
+
+- name: setup arduino-cli
+  become: yes
+  become_user: mutovis
+  shell: |
+     arduino-cli core update-index
+     arduino-cli core install arduino:avr
+     arduino-cli lib install "Ethernet"
+     exit 0
+
+- name: compile firmware
+  become: yes
+  become_user: mutovis
+  args:
+    chdir: /home/mutovis/git/mutovis/firmware
+  shell: |
+    arduino-cli compile -o build/mutovis_firmware -b arduino:avr:mega . 
