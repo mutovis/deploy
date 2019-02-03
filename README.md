@@ -15,4 +15,5 @@ PLAY RECAP ****************************************************************
 127.0.0.1                  : ok=23   changed=8    unreachable=0    failed=0 
 ```
 the `ok` and `changed` numbers above might be different, but the `unreachable` and `failed` numbers should both be zero.
-For the first run, this may take several minutes to complete since several bits of software will be compiled here.
+For the first run, this may take several minutes to complete since several bits of software will be compiled here.  
+Re-plug any USB <---> GPIB adapters after the installation is complete.
