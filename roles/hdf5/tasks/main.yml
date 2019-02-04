@@ -9,7 +9,7 @@
 - name: clean incorrect hdf5 packages
   ignore_errors: yes
   pacman:
-    name: ['hdf5-openmpi', 'python-hdf5-openmpi', 'hdfview', 'hdf5']
+    name: ['hdf5-openmpi', 'python-hdf5-openmpi', 'hdfview', 'hdf5', 'hdf5-openmpi-java', 'hdf4-java']
     state: absent
     force: yes
 
