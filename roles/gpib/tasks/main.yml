@@ -5,6 +5,7 @@
     name: linux-gpib
     state: absent
     force: yes
+    recurse: yes
 
 - name: install linux-gpib kernel module and python bindings
   become: yes

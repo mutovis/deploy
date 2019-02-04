@@ -11,6 +11,7 @@
   pacman:
     name: ['hdf5-openmpi', 'python-hdf5-openmpi', 'hdfview', 'hdf5', 'hdf5-openmpi-java', 'hdf4-java']
     state: absent
+    recurse: yes
     force: yes
 
 - name: install hdf5 with java

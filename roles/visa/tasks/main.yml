@@ -3,6 +3,7 @@
   ignore_errors: yes
   pacman:
     name: ['python-pyvisa-git', 'python-pyvisa-py']
+    recurse: yes
     state: absent
     force: yes
 
