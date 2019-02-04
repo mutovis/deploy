@@ -13,19 +13,19 @@
   environment:
     PKGDEST: ""
   aur:
-    name: ['hdf5-java']
+    name: ['hdf5-java', 'hdfview-git', 'python-h5py']
 
-- name: install hdf5 python bindings
-  pacman:
-    name: ['python-h5py']
+    #- name: install hdf5 python bindings
+    #  pacman:
+    #    name: ['python-h5py']
 
-- name: install hdfview
-  become: yes
-  become_user: aur_builder
-  environment:
-    PKGDEST: ""
-  aur:
-    name: ['hdfview-git']
+    #- name: install hdfview
+    #  become: yes
+    #  become_user: aur_builder
+    #  environment:
+    #    PKGDEST: ""
+    #  aur:
+    #    name: ['hdfview-git']
 
 - name: clean incorrect hdf5 packages
   ignore_errors: yes
