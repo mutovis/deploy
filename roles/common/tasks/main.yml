@@ -76,6 +76,7 @@
   user:
     name: mutovis
     password: "{{ hashed_pw }}"
+    system: yes
 
 - name: make mutovis home world readable
   file:
