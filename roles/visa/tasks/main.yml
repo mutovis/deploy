@@ -1,12 +1,4 @@
 ---
-- name: remove wrong pyvisa packages
-  ignore_errors: yes
-  pacman:
-    name: ['python-pyvisa-git', 'python-pyvisa-py']
-    recurse: yes
-    state: absent
-    force: yes
-
 - name: install pyvisa
   become: yes
   become_user: aur_builder
