@@ -39,5 +39,4 @@
   become_user: mutovis
   args:
     chdir: /home/mutovis/git/mutovis/firmware/mainArduino
-  shell: |
-    arduino-cli compile -o build/mutovis_firmware -b arduino:avr:mega . 
+  shell: bash compile.sh
