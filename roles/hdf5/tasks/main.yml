@@ -6,32 +6,10 @@
 - name: make sure java is OpenJDK 11
   shell: archlinux-java set java-11-openjdk
 
-
 - name: install hdf5 with java
   become: yes
   become_user: aur_builder
   environment:
     PKGDEST: ""
   aur:
-    name: ['hdf5-java', 'hdfview-git', 'python-h5py']
-
-    #- name: install hdf5 python bindings
-    #  pacman:
-    #    name: ['python-h5py']
-
-    #- name: install hdfview
-    #  become: yes
-    #  become_user: aur_builder
-    #  environment:
-    #    PKGDEST: ""
-    #  aur:
-    #    name: ['hdfview-git']
-
-- name: clean incorrect hdf5 packages
-  ignore_errors: yes
-  pacman:
-    name: ['hdf5-openmpi', 'python-hdf5-openmpi', 'hdfview', 'hdf5', 'hdf5-openmpi-java', 'hdf4-java']
-    state: absent
-    recurse: yes
-    force: yes
-
+    name: ['hdf5-java', 'hdfview', 'python-h5py']
