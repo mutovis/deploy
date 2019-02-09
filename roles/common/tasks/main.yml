@@ -77,6 +77,8 @@
     name: mutovis
     password: "{{ hashed_pw }}"
     system: yes
+    groups: ['uucp', 'gpib']
+    
 
 - name: make mutovis home world readable
   file:
