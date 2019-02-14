@@ -67,6 +67,7 @@
 - name: make aur_builder user
   user:
     name: aur_builder
+    system: yes
 
 - name: make mutovis user
   vars:
