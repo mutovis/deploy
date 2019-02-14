@@ -38,5 +38,5 @@
   become: yes
   become_user: mutovis
   args:
-    chdir: /home/mutovis/git/mutovis/firmware/mainArduino
+    chdir: /home/mutovis/git/mutovis/firmware
   shell: bash compile.sh
