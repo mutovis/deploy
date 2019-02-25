@@ -6,3 +6,10 @@
     PKGDEST: ""
   aur:
     name: ['linux-gpib-dkms','python-linux-gpib','fxload']
+
+- name: ni_usb_gpib kernel module to be loaded at boot
+  copy:
+    content: "ni_usb_gpib"
+    dest: /etc/modules-load.d/gpib.conf
+    force: yes
+
