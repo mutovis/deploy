@@ -1,0 +1,11 @@
+---
+- name: install chrome with remote desktop for remote support
+  become: yes
+  become_user: aur_builder
+  environment:
+    PKGDEST: ""
+  aur:
+    name: ['google-chrome', 'chrome-remote-desktop']
+
+# the user should run `crd --setup`
+# not sure if the service needs to be started

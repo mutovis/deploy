@@ -16,4 +16,8 @@
     - include_role:
        name: hdf5
     - include_role:
+       name: chrome
+    - include_role:
        name: control-software
+    - include_role:
+       name: analysis-software
