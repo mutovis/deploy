@@ -1,14 +1,15 @@
 ---
-- name: install pyserial
-  ignore_errors: yes
-  pacman:
-    name: ['python-pyserial', 'python-numpy', 'python-mpmath']
-    state: present
+- name: install control software
+  become: yes
+  become_user: aur_builder
+  environment:
+    PKGDEST: ""
+  aur:
+    name: ['python-mutovis-control']
 
-#- name: install mutovis control-software
-#  become: yes
-#  become_user: aur_builder
-#  environment:
-#    PKGDEST: ""
-#  aur:
-#    name: ['mutovis-control-software']
+- name: use our gpib.conf
+  file:
+    src: /usr/etc/gpib.conf
+    dest: /etc/gpib.conf
+    state: link
+    force: yes

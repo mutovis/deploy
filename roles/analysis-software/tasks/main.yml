@@ -1,0 +1,8 @@
+---
+- name: install analysis software
+  become: yes
+  become_user: aur_builder
+  environment:
+    PKGDEST: ""
+  aur:
+    name: ['python-mutovis-analysis']
