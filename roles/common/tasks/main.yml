@@ -69,6 +69,12 @@
     name: aur_builder
     system: yes
 
+- name: make gpib group
+  group:
+    name: gpib
+    system: yes
+    state: present
+
 - name: make mutovis user
   vars:
     # created with:
@@ -79,7 +85,6 @@
     password: "{{ hashed_pw }}"
     system: yes
     groups: ['uucp', 'gpib']
-    
 
 - name: make mutovis home world readable
   file:

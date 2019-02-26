@@ -6,3 +6,12 @@
     PKGDEST: ""
   aur:
     name: ['python-mutovis-analysis']
+
+- name: clone analysis repo
+  become: yes
+  become_user: mutovis
+  git:
+    repo: 'https://github.com/mutovis/analysis-software.git'
+    dest: /home/mutovis/git/mutovis/analysis-software
+    version: master
+

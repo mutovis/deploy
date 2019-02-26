@@ -7,9 +7,18 @@
   aur:
     name: ['python-mutovis-control']
 
+- name: clone control repo
+  become: yes
+  become_user: mutovis
+  git:
+    repo: 'https://github.com/mutovis/control-software.git'
+    dest: /home/mutovis/git/mutovis/control-software
+    version: master
+
 - name: use our gpib.conf
   file:
     src: /usr/etc/gpib.conf
     dest: /etc/gpib.conf
     state: link
     force: yes
+

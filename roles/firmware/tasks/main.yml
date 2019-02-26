@@ -1,7 +1,7 @@
 ---
-- name: install arduino-cli
+- name: install arduino-cli and avrdude
   pacman:
-    name: arduino-cli
+    name: ['arduino-cli', 'avrdude']
     state: present
 
 - name: clone firmware repo
