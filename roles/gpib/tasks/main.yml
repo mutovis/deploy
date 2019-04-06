@@ -5,7 +5,9 @@
   environment:
     PKGDEST: ""
   aur:
-    name: ['linux-gpib-dkms','python-linux-gpib','fxload']
+#    name: ['linux-gpib-dkms','python-linux-gpib','fxload']
+# for now, we need to use linux-gpib-svn because the stable release doesn't support linux 5
+    name: ['linux-gpib-svn','fxload']
 
 - name: ni_usb_gpib kernel module to be loaded at boot
   copy:
